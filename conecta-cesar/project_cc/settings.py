@@ -9,9 +9,9 @@ load_dotenv(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-TARGET_ENV = os.getenv('TARGET_ENV')
+TARGET_ENV = os.getenv('TARGET_ENV', 'development')  # Define 'development' como padrão se a variável de ambiente não estiver definida
 NOT_PROD = not TARGET_ENV.lower().startswith('prod')
+
 
 if NOT_PROD:
     # SECURITY WARNING: don't run with debug turned on in production!

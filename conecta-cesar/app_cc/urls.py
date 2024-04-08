@@ -26,6 +26,7 @@ urlpatterns = [
     path('boletim.html', views.boletim),
     path('frequencia.html', views.frequencia),
     path('diario.html', views.diario),
+    path('horaextra.html', views.horaextra),
 
     #professor paths
     path('turmas.html', views.turmas),
@@ -35,6 +36,7 @@ urlpatterns = [
     path('perfilp.html', views.perfilp),
     path('perfil.html', views.perfil),
     path('diariop.html',views.diariop),
+    
 
 ]
 """Todos os arquivos html é preciso definir o path aqui"""

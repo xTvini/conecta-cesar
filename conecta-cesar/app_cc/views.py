@@ -28,13 +28,31 @@ def boletim(request):
 
     return render(request, 'app_cc/boletim.html', {'disciplinas_com_notas': disciplinas_com_notas})
 
+def disciplinas_e_notas(request):
+    disciplinas_com_notas = []
+
+    disciplinas = Disciplina.objects.all()
+    for disciplina in disciplinas:
+        notas = Nota.objects.filter(disciplina=disciplina)
+        disciplinas_com_notas.append((disciplina, notas))
+
+    return render(request, 'app_cc/disciplina.html', {'disciplinas_com_notas': disciplinas_com_notas})
+
 def diariop(request):
-    return render(request, 'app_cc/diario.html', name='diario')
+    return render(request, 'app_cc/diario.html')
 
 
 def frequencia(request):
     return render(request, 'app_cc/frequencia.html')
 
+def perfil(request):
+    return render(request, 'app_cc/perfil.html')
+
+def diario(request):
+    return render(request, 'app_cc/diario.html')
+
+def horaextra(request):
+    return render(request, 'app_cc/horaextra.html')
 
 #Professor Links
 def turmas(request):
@@ -54,22 +72,6 @@ def avisosp(request):
 
 def frequenciap(request):
     return render(request, 'app_cc/frequenciap.html')
-
-def disciplinas_e_notas(request):
-    disciplinas_com_notas = []
-
-    disciplinas = Disciplina.objects.all()
-    for disciplina in disciplinas:
-        notas = Nota.objects.filter(disciplina=disciplina)
-        disciplinas_com_notas.append((disciplina, notas))
-
-    return render(request, 'app_cc/disciplina.html', {'disciplinas_com_notas': disciplinas_com_notas})
-
-def perfil(request):
-    return render(request, 'app_cc/perfil.html')
-
-def diario(request):
-    return render(request, 'app_cc/diario.html')
 
 
 """Para cada arquivo html é preciso fazer uma def de request do caminho do arquivo para o app"""
